@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content-wrapper {
+    position: absolute;
+    width: calc(100% - 78px);
+    left: 78px;
+    padding: 12px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: #11101d;
+    padding: 6px 14px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar .logo-content .logo {
+    color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.sidebar .logo-content .logo i {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+.sidebar .logo-content .logo .logo-name {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin-left: 55px;
+}
+
+.sidebar .logo-content #toggleMenu {
+    position: absolute;
+    color: #ffffff;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    margin-left: -30px;
+}
+
+.sidebar .nav-list .nav-item {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0px;
+    line-height: 50px;
+}
+
+.sidebar .nav-list .nav-item .nav-link {
+    color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 12px;
+    white-space: nowrap;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sidebar .nav-list .nav-item .nav-link .nav-name {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar .nav-list .nav-item .nav-link:hover {
+    color: #11101d;
+    background: #ffffff;
+}
+
+.sidebar .nav-list .nav-item .tooltip {
+    position: absolute;
+    top: 0;
+    left: 122px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 35px;
+    width: 122px;
+    background: #ffffff;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    line-height: 35px;
+    text-align: center;
+    -webkit-transition: 0s;
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+}
+
+.sidebar .nav-list .nav-item i {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .nav-list .nav-item i.bx-search {
+    position: absolute;
+    z-index: 99;
+    color: #ffffff;
+    font-size: 22px;
+    -webkit-transition: all 0.5 ease;
+    transition: all 0.5 ease;
+}
+
+.sidebar .nav-list .nav-item i.bx-search:hover {
+    background: #ffffff;
+    color: #1d1d1d;
+}
+
+.sidebar .nav-list .nav-item:hover .tooltip {
+    top: 50%;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar .profile-content {
+    position: absolute;
+    width: 100%;
+    color: #ffffff;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar .profile-content .profile {
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: none;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sidebar .profile-content .profile .profile-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    font-size: 20px;
+}
+
+.sidebar .profile-content .profile .profile-details .name-job {
+    margin-left: 10px;
+}
+
+.sidebar .profile-content .profile .profile-details .name-job .name {
+    font-weight: 400;
+}
+
+.sidebar .profile-content .profile #logout {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    background: #1d1b31;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.sidebar.active {
+    width: 260px;
+}
+
+.sidebar.active .logo-content .logo {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.sidebar.active .logo-content #toggleMenu {
+    left: 90%;
+}
+
+.sidebar.active .nav-list .nav-item .nav-link .nav-name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar.active .nav-list .nav-item .tooltip {
+    display: none;
+}
+
+.sidebar.active .profile-content .profile {
+    background: #1d1b31;
+}
+
+.sidebar.active .profile-content .profile .profile-details {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar.active .profile-content .profile #logout {
+    left: 88%;
+    background: none;
+}
+
+.sidebar.active ~ .content-wrapper {
+    width: calc(100% - 260px);
+    left: 260px;
+}
+
+.sidebar .nav-list .nav-item .sidebar-search {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: #1d1b31;
+    padding-left: 50px;
+    font-size: 18px;
+    color: #ffffff;
+}
+/*# sourceMappingURL=style.css.map */
