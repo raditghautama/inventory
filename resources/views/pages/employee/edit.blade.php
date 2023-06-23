@@ -19,10 +19,8 @@
             <div class="mb-3">
                 <label for="gender">Gender</label>
                 <select name="gender" id="gender" class="form-control shadow-none" required>
-                    @foreach ($employees as $item)
-                        <option value="Laki Laki" {{ $item->gender == 'Laki Laki' ? 'SELECTED' : '' }}>Laki Laki</option>
-                        <option value="Perempuan" {{ $item->gender == 'Perempuan' ? 'SELECTED' : '' }}>Perempuan </option>
-                    @endforeach
+                    <option value="Laki Laki" {{ $item->gender == 'Laki Laki' ? 'SELECTED' : '' }}>Laki Laki</option>
+                    <option value="Perempuan" {{ $item->gender == 'Perempuan' ? 'SELECTED' : '' }}>Perempuan </option>
                 </select>
             </div>
             <div class="mb-3">
@@ -38,9 +36,7 @@
             <div class="mb-3">
                 <label for="agama">Agama</label>
                 <select name="agama" id="agama" class="form-control shadow-none" required>
-                    @foreach ($employees as $item)
-                        <option value="{{ $item->agama }}">{{ $item->agama }} </option>
-                    @endforeach
+                    <option value="{{ $item->agama }}">{{ $item->agama }} </option>
                 </select>
             </div>
             <div class="mb-3">

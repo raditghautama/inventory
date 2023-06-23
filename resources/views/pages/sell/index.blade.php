@@ -4,9 +4,9 @@
     <section class="py-5 mt-5">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 text-dark">Employee</h4>
-                <a href="{{ route('karyawan.create') }}" class="btn btn-primary" type="button">
-                    Add Employee
+                <h4 class="mb-0 text-dark">Data Pengambilan Barang</h4>
+                <a href="{{ route('sell.create') }}" class="btn btn-primary" type="button">
+                    Ambil Barang
                 </a>
             </div>
 
@@ -15,30 +15,30 @@
                     <thead>
                         <tr class="table-dark text-white">
                             <th>No</th>
-                            <th>NIK</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Agama</th>
-                            <th>Alamat</th>
+                            <th>Tanggal Pengambilan</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Diambil oleh</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($employees as $key => $item)
+                        @foreach ($sells as $key => $item)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $item->nik }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->gender }}</td>
-                                <td>{{ $item->agama }}</td>
-                                <td>{{ $item->alamat }}</td>
+                                <td>{{ $item->tgl_sell }}</td>
+                                <td>{{ $item->products->kode_product }}</td>
+                                <td>{{ $item->products->name }}</td>
+                                <td>{{ $item->qty }}</td>
+                                <td>{{ $item->users->name }}</td>
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
-                                        <a href="{{ route('karyawan.show', $item->id) }}"
+                                        <a href="{{ route('sell.show', $item->id) }}"
                                             class="btn btn-info rounded-2 px-2 py-1 text-decoration-none btn-sm">Detail</a>
-                                        <a href="{{ route('karyawan.edit', $item->id) }}"
+                                        <a href="{{ route('sell.edit', $item->id) }}"
                                             class="btn btn-primary rounded-2 px-2 py-1 text-decoration-none btn-sm">Edit</a>
-                                        <form action="{{ route('karyawan.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('sell.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger rounded-2 px-1 py-1 btn-sm " type="submit"

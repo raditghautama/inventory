@@ -33,55 +33,65 @@
                 <input type="text" placeholder="Search . . ." class="sidebar-search">
                 <span class="tooltip">Search</span>
             </li>
-            <li class="nav-item">
-                <a href="{{ url('../home') }}" class="nav-link">
+            <li class="nav-item ">
+                <a href="{{ url('/') }}" class="nav-link">
                     <i class="bx bx-grid-alt"></i> <span class="nav-name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('karyawan.index') }}" class="nav-link">
-                    <i class="bx bx-user"></i> <span class="nav-name">Data Karyawan</span>
-                </a>
-                <span class="tooltip">Data Karyawan</span>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bx bx-data"></i> <span class="nav-name">Data Barang</span>
-                </a>
-                <span class="tooltip">Data Barang</span>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class='bx bx-cart me-2'></i> <span class="nav-name">Pengambilan Barang</span>
-                </a>
-                <span class="tooltip">Pengambilan Barang</span>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bx bx-folder"></i> <span class="nav-name">Laporan Pengambilan</span>
-                </a>
-                <span class="tooltip">Laporan Pengambilan</span>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bx bx-cog"></i> <span class="nav-name">Setting</span>
-                </a>
-                <span class="tooltip">Setting</span>
-            </li>
+            @if (Auth::user() && Auth::user()->roles == 'owner')
+                <li class="nav-item">
+                    <a href="{{ route('karyawan.index') }}" class="nav-link">
+                        <i class="bx bx-user"></i> <span class="nav-name">Data Karyawan</span>
+                    </a>
+                    <span class="tooltip">Data Karyawan</span>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('report.index') }}" class="nav-link">
+                        <i class="bx bx-folder"></i> <span class="nav-name">Laporan Pengambilan</span>
+                    </a>
+                    <span class="tooltip">Laporan Pengambilan</span>
+                </li>
+            @endif
+            @if (Auth::user() && Auth::user()->roles == 'admin')
+                <li class="nav-item">
+                    <a href="{{ route('produk.index') }}" class="nav-link">
+                        <i class="bx bx-data"></i> <span class="nav-name">Data Barang</span>
+                    </a>
+                    <span class="tooltip">Data Barang</span>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('sell.index') }}" class="nav-link">
+                        <i class='bx bx-cart me-2'></i> <span class="nav-name">Pengambilan Barang</span>
+                    </a>
+                    <span class="tooltip">Pengambilan Barang</span>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bx bx-cog"></i> <span class="nav-name">Setting</span>
+                    </a>
+                    <span class="tooltip">Setting</span>
+                </li>
         </ul>
+        @endif
         {{-- Authentication Links --}}
         @guest
             @if (Route::has('login'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}"><i class='bx bx-log-in me-2'></i>{{ __('Login') }}</a>
+                    <a href="{{ route('login') }}" class="nav-link">
+                        <i class='bx bx-log-in me-2'></i> <span class="nav-name">Login</span>
+                    </a>
+                    <span class="tooltip">Login</span>
                 </li>
             @endif
 
             @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}"><i
-                            class='bx bx-registered me-2'></i>{{ __('Register') }}</a>
+
+                    <a href="{{ route('register') }}" class="nav-link">
+                        <i class='bx bx-registered me-2'></i> <span class="nav-name">Register</span>
+                    </a>
+                    <span class="tooltip">Register</span>
                 </li>
             @endif
         @else

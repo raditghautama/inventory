@@ -49,9 +49,14 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
-        //
+        $item = Employee::findOrFail($id);
+
+        return view('pages.employee.show', [
+            'item' => $item,
+            'title' => 'Detail Karyawan'
+        ]);
     }
 
     /**
@@ -60,11 +65,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $item = Employee::findOrFail($id);
-        $employees = Employee::all();
 
         return view('pages.employee.edit', [
             'item' => $item,
-            'employees' => $employees,
             'title' => 'Edit Karyawan'
         ]);
     }
